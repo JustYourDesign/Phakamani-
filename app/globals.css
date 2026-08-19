@@ -4,164 +4,235 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ==========================================================================
+   PHAKAMANI DESIGN SYSTEM
+   Structure derived from the WHOOP performance system: full-bleed black/white
+   alternation, oversized display type with aggressive negative tracking,
+   pill buttons, flat colour elevation (no shadows), one accent.
+   Accent + warm surfaces come from the Phakamani logo and mood board.
+   ========================================================================== */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
+  --font-display: var(--font-sans);
   --font-baron: var(--font-baron);
   --font-logo: var(--font-logo);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-display);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-brand: var(--brand);
-  --color-brand-foreground: var(--brand-foreground);
-  --color-brand-from: var(--brand-from);
-  --color-brand-via: var(--brand-via);
-  --color-brand-to: var(--brand-to);
+
+  /* Core surfaces */
+  --color-obsidian: var(--obsidian);
+  --color-carbon: var(--carbon);
+  --color-paper: var(--paper);
+  --color-mist: var(--mist);
+  --color-hairline: var(--hairline);
+  --color-fog: var(--fog);
+  --color-ash: var(--ash);
+
+  /* Phakamani brand */
+  --color-mint: var(--mint);
+  --color-emerald: var(--emerald);
+  --color-forest: var(--forest);
   --color-cream: var(--cream);
   --color-sage: var(--sage);
-  --color-sage-light: var(--sage-light);
-  --color-evergreen: var(--evergreen);
-  --color-forest: var(--forest);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* shadcn bridge */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* WHOOP radius rules: pills are non-negotiable, cards are 24px */
+  --radius-pill: 300px;
+  --radius-card: 24px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 30px;
+
+  /* Type scale — minor third from an 19px body, tracked tight at the top */
+  --text-display: clamp(3.25rem, 10.5vw, 7.5rem);
+  --text-display--line-height: 0.82;
+  --text-display--letter-spacing: -0.04em;
+
+  --text-hero: clamp(2.75rem, 6.5vw, 4.5rem);
+  --text-hero--line-height: 0.86;
+  --text-hero--letter-spacing: -0.035em;
+
+  --text-title: clamp(2rem, 3.6vw, 3.125rem);
+  --text-title--line-height: 0.92;
+  --text-title--letter-spacing: -0.03em;
+
+  --text-heading: 2.1875rem;
+  --text-heading--line-height: 1;
+  --text-heading--letter-spacing: -0.03em;
+
+  --text-subheading: 1.5rem;
+  --text-subheading--line-height: 1.13;
+  --text-subheading--letter-spacing: -0.03em;
+
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.35;
+  --text-lead--letter-spacing: -0.03em;
+
+  --text-body: 1.1875rem;
+  --text-body--line-height: 1.45;
+  --text-body--letter-spacing: -0.02em;
+
+  --text-small: 1rem;
+  --text-small--line-height: 1.5;
+  --text-small--letter-spacing: -0.01em;
+
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.14em;
 }
 
 :root {
-  /* Phakamani brand palette (moodboard) */
-  --cream: #edeae1;
-  --sage-light: #c1c3ac;
+  /* Surfaces */
+  --obsidian: #000000;
+  --carbon: #121212;
+  --paper: #ffffff;
+  --mist: #f2f4f1; /* flat elevation fill — the only "raised" surface */
+  --hairline: #e4e7e1;
+  --fog: #7a7a7a;
+  --ash: #9a9a9a;
+
+  /* Phakamani accent — the logo's mint dot and its deeper working weight */
+  --mint: #4fd1a5; /* bright accent, dark backgrounds only */
+  --emerald: #0b7a57; /* accessible accent for light backgrounds */
+  --forest: #0a3b2e; /* deep brand green, warm dark sections */
+  --cream: #edeae1; /* mood-board warmth, used sparingly */
   --sage: #80866e;
-  --evergreen: #344c3d;
-  --forest: #013220;
 
-  --background: var(--cream);
-  --foreground: var(--forest);
-  --card: #f7f5ee;
-  --card-foreground: var(--forest);
-  --popover: #f7f5ee;
-  --popover-foreground: var(--forest);
+  --background: var(--paper);
+  --foreground: var(--obsidian);
 
-  /* Brand accent = logo's mint/emerald secondary colour */
-  --primary: oklch(0.596 0.145 163.225);
-  --primary-foreground: oklch(0.985 0 0);
-  --brand: oklch(0.596 0.145 163.225);
-  --brand-foreground: oklch(0.985 0 0);
-  --brand-from: oklch(0.596 0.145 163.225);
-  --brand-via: oklch(0.696 0.17 162.48);
-  --brand-to: oklch(0.704 0.14 182.503);
+  --card: var(--mist);
+  --card-foreground: var(--obsidian);
+  --popover: var(--paper);
+  --popover-foreground: var(--obsidian);
 
-  --secondary: var(--sage-light);
-  --secondary-foreground: var(--forest);
-  --muted: var(--sage-light);
-  --muted-foreground: var(--sage);
-  --accent: #e1efe6;
-  --accent-foreground: var(--forest);
+  --primary: var(--emerald);
+  --primary-foreground: #ffffff;
+  --secondary: var(--mist);
+  --secondary-foreground: var(--obsidian);
+  --muted: var(--mist);
+  --muted-foreground: var(--fog);
+  --accent: var(--mist);
+  --accent-foreground: var(--obsidian);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: color-mix(in oklab, var(--sage-light) 55%, transparent);
-  --input: color-mix(in oklab, var(--sage-light) 55%, transparent);
-  --ring: oklch(0.596 0.145 163.225);
-  --chart-1: var(--forest);
-  --chart-2: var(--evergreen);
-  --chart-3: oklch(0.596 0.145 163.225);
-  --chart-4: var(--sage);
-  --chart-5: var(--sage-light);
-  --radius: 1rem;
-  --sidebar: #f7f5ee;
-  --sidebar-foreground: var(--forest);
-  --sidebar-primary: oklch(0.596 0.145 163.225);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: #e1efe6;
-  --sidebar-accent-foreground: var(--forest);
-  --sidebar-border: color-mix(in oklab, var(--sage-light) 55%, transparent);
-  --sidebar-ring: oklch(0.596 0.145 163.225);
+
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--emerald);
+
+  --radius: 24px;
 }
 
-.dark {
-  --background: oklch(0.145 0.01 163);
-  --foreground: oklch(0.96 0.01 90);
-  --card: oklch(0.19 0.015 163);
-  --card-foreground: oklch(0.96 0.01 90);
-  --popover: oklch(0.19 0.015 163);
-  --popover-foreground: oklch(0.96 0.01 90);
-  --primary: oklch(0.696 0.17 162.48);
-  --primary-foreground: oklch(0.145 0 0);
-  --brand: oklch(0.696 0.17 162.48);
-  --brand-foreground: oklch(0.145 0 0);
-  --brand-from: oklch(0.696 0.17 162.48);
-  --brand-via: oklch(0.765 0.177 163.223);
-  --brand-to: oklch(0.777 0.152 181.912);
-  --secondary: oklch(0.269 0.01 163);
-  --secondary-foreground: oklch(0.96 0.01 90);
-  --muted: oklch(0.269 0.01 163);
-  --muted-foreground: oklch(0.708 0.02 90);
-  --accent: oklch(0.269 0.03 163);
-  --accent-foreground: oklch(0.96 0.01 90);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.696 0.17 162.48);
-  --chart-1: oklch(0.87 0.05 90);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.556 0.05 163);
-  --chart-4: oklch(0.439 0.05 163);
-  --chart-5: oklch(0.269 0.02 163);
-  --sidebar: oklch(0.19 0.015 163);
-  --sidebar-foreground: oklch(0.96 0.01 90);
-  --sidebar-primary: oklch(0.696 0.17 162.48);
-  --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: oklch(0.269 0.03 163);
-  --sidebar-accent-foreground: oklch(0.96 0.01 90);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.696 0.17 162.48);
+/* Dark sections opt in per-band rather than per-document, matching the
+   full-bleed alternation pattern. `.on-dark` remaps the bridge tokens so
+   shadcn primitives (buttons, inputs, accordions) invert correctly. */
+.on-dark {
+  --background: var(--obsidian);
+  --foreground: #ffffff;
+  --card: #161616;
+  --card-foreground: #ffffff;
+  --popover: var(--carbon);
+  --popover-foreground: #ffffff;
+  --primary: var(--mint);
+  --primary-foreground: var(--obsidian);
+  --secondary: #1c1c1c;
+  --secondary-foreground: #ffffff;
+  --muted: #1c1c1c;
+  --muted-foreground: var(--ash);
+  --accent: #1c1c1c;
+  --accent-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.14);
+  --input: rgba(255, 255, 255, 0.18);
+  --ring: var(--mint);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans scroll-smooth;
+    /* the header is sticky — keep anchor targets clear of it.
+       4rem bar on small screens; 4.5rem bar + 2.75rem rail from lg. */
+    scroll-padding-top: 5rem;
+    @variant lg {
+      scroll-padding-top: 8rem;
+    }
   }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 19px;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--mint);
+    color: var(--obsidian);
+  }
+}
+
+/* Uppercase micro-label used for eyebrows and button text throughout */
+@utility label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 @utility text-balance {
   text-wrap: balance;
+}
+
+/* Content well — WHOOP holds body copy to a narrow measure and never centres it */
+@utility measure {
+  max-width: 34rem;
+}
+
+/* Horizontal rails (nav categories, card carousels) hide their scrollbar */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee-x 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }

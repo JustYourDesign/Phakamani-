@@ -25,7 +25,9 @@ export default function ServicesPage() {
       />
       <Audiences />
       <ServicesGrid />
-      <Journey />
+      {/* Consecutive white bands each own their bottom padding only, so the
+          gap between them stays 96px rather than doubling to 192px. */}
+      <Journey className="pt-0 lg:pt-0" />
       <Faq />
       <CtaBand
         eyebrow="Let's Talk"
